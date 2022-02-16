@@ -1,4 +1,4 @@
-{% include 'notes/notes.html' %}
+<!-- СПИСОК ЗАМЕТОК С НАЧАЛОМ ОПИСАНИЯ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +7,13 @@
 </head>
 <body>
 	<p>Home page!</p>
-	{{ for note in notes %}
-	<h3>{% note.title %}</h3>
-	<p>{% note.description %}</p>
+
+	{% for note in notes %}
+	
+	<h3>{{note.title }}</h3>
+	<p>{{ note.description | truncatewords:20 }}</p>
+	<p>{{ note.created | date:"d-M-Y H:i" }}</p>
+	{% endfor %}
 	<br>
 	<hr>
 </body>
